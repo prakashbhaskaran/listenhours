@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Breakup kit · ListenHours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="wrap">
+    <h1>Breakup kit</h1>
+    <p class="lede">Leaving someone you're attached to hurts, even when you know you should. That pain is real. It isn't weakness. Here's how to decide, and how to get through it.</p>
+
+    <form id="circle" class="panel">
+      <h2>How are you treated up close?</h2>
+      <p class="muted small">The person closest to us should be treated best. Tick what's true for you.</p>
+      <fieldset>
+        <legend class="small">Signs you've become "the enemy"</legend>
+        <ul class="checks" id="enemy"></ul>
+      </fieldset>
+      <fieldset style="margin-top:1rem">
+        <legend class="small">Signs you're treated like royalty</legend>
+        <ul class="checks" id="royalty"></ul>
+      </fieldset>
+      <p id="verdict" class="note" aria-live="polite"></p>
+    </form>
+
+    <h2>Getting through it</h2>
+    <ol class="steps" id="strategies"></ol>
+
+    <div class="panel">
+      <h2>Why I left</h2>
+      <p class="muted small">Write the moments that hurt, while you remember them clearly. Come back here when you start missing them.</p>
+      <form id="reason-form">
+        <label class="field" for="reason">Add a reason</label>
+        <textarea id="reason" name="reason"></textarea>
+        <div class="actions"><button class="btn" type="submit">Add to my list</button></div>
+      </form>
+      <ul class="entries" id="reasons"></ul>
+    </div>
+    <div id="pay"></div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script type="module" src="js/pages/breakup.js"></script>
+</body>
+</html>

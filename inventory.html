@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Look back · ListenHours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="wrap">
+    <h1>Look back at past relationships</h1>
+    <p class="lede">The same patterns often repeat from one relationship to the next. Write about each person you've been with, then look for what keeps coming back. Take your time and do this alone, somewhere quiet.</p>
+    <p class="muted small">Saved only on this device. You can delete any entry.</p>
+
+    <form id="entry" class="panel">
+      <h2>Add a relationship</h2>
+      <div id="fields"></div>
+      <details>
+        <summary>Patterns to look for</summary>
+        <div id="patterns"></div>
+      </details>
+      <div class="actions">
+        <button class="btn" type="submit">Save this relationship</button>
+        <span class="small" id="status" role="status"></span>
+      </div>
+    </form>
+
+    <h2>What I've written</h2>
+    <ul class="entries" id="entries"></ul>
+
+    <div class="note">
+      <strong>Now step back.</strong> Which moments set you off in more than one relationship? Which reaction keeps costing you? It can help to go over this with someone you trust, a close friend, a sibling or a counsellor, who can remind you when your old pattern takes over.
+    </div>
+    <div id="pay"></div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script type="module" src="js/pages/inventory.js"></script>
+</body>
+</html>

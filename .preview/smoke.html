@@ -1,0 +1,69 @@
+<!doctype html><body><pre id="out">running</pre>
+<script type="module">
+const out = [];
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+async function open(src) {
+  const f = document.createElement("iframe"); f.width = 360; f.height = 800; f.src = src;
+  document.body.appendChild(f);
+  await new Promise((r) => f.onload = r); await wait(400);
+  const errs = []; f.contentWindow.addEventListener("error", (e) => errs.push(e.message));
+  return { d: f.contentDocument, w: f.contentWindow, errs };
+}
+const check = (name, ok, extra = "") => out.push(`${ok ? "PASS" : "FAIL"} ${name} ${extra}`);
+try {
+  localStorage.clear();
+  let { d, w } = await open("/my-style.html");
+  check("shell rendered", !!d.querySelector(".site-nav a[aria-current]") && !!d.querySelector(".helplines"));
+  check("36 statements", d.querySelectorAll('input[name="item"]').length === 36);
+  d.querySelector("#quiz button[type=submit]").click(); await wait(100);
+  check("empty → unclear", d.querySelector("#result h2").textContent.includes("Tick"));
+  [...d.querySelectorAll('input[value^="a"]')].forEach((i) => { i.checked = true; });
+  d.querySelector('input[name="item"]').dispatchEvent(new Event("change", { bubbles: true }));
+  d.querySelector("#quiz button[type=submit]").click(); await wait(100);
+  check("anxious result", d.querySelector("#result h2").textContent.includes("anxious"), d.querySelector("#result h2").textContent);
+  check("map dot", !!d.querySelector("#result .you"));
+  check("pay box", !!d.querySelector("#result .pay"), d.querySelector("#result .pay")?.textContent.trim().slice(0, 60));
+  check("no horizontal scroll", d.documentElement.scrollWidth <= 360, d.documentElement.scrollWidth);
+
+  ({ d } = await open("/partner-style.html"));
+  d.querySelector("#quiz button[type=submit]").click(); await wait(100);
+  check("partner missing highlighted", d.querySelectorAll(".rating.missing").length === 33, d.querySelector("#status").textContent);
+  d.querySelectorAll('input[type=radio]').forEach((r) => { if ((r.name.startsWith("pa") && r.value === "3") || (!r.name.startsWith("pa") && r.value === "1")) r.checked = true; });
+  d.querySelector("#quiz button[type=submit]").click(); await wait(100);
+  check("partner avoidant", d.querySelector("#result h2")?.textContent.includes("avoidant"), d.querySelector("#result h2")?.textContent);
+  check("no horizontal scroll", d.documentElement.scrollWidth <= 360, d.documentElement.scrollWidth);
+
+  ({ d, w } = await open("/say-it.html"));
+  const set = (id, v) => { d.getElementById(id).value = v; d.getElementById(id).dispatchEvent(new Event("input", { bubbles: true })); };
+  set("when", "you always cancel"); set("need", "some notice");
+  check("preview", d.getElementById("preview").textContent === "When you always cancel, it's hard for me. I need some notice.", d.getElementById("preview").textContent);
+  check("warning shown", d.querySelectorAll("#warnings li").length === 1);
+  check("no horizontal scroll", d.documentElement.scrollWidth <= 360, d.documentElement.scrollWidth);
+
+  ({ d } = await open("/inventory.html"));
+  d.querySelector("#entry button[type=submit]").click(); await wait(50);
+  check("needs name", d.getElementById("status").textContent.includes("name"));
+  d.getElementById("f-name").value = "R <b>x</b>"; d.getElementById("f-trigger").value = "No calls";
+  d.querySelector("#entry button[type=submit]").click(); await wait(50);
+  check("entry saved + escaped", d.querySelectorAll("#entries > li h3").length === 1 && !d.querySelector("#entries b"), d.getElementById("status").textContent);
+  ({ d } = await open("/inventory.html"));
+  check("entry persists", d.querySelectorAll("#entries > li h3").length === 1);
+  d.querySelector("[data-remove]").click(); await wait(50);
+  check("entry removed", !d.querySelector("#entries h3"));
+
+  ({ d } = await open("/breakup.html"));
+  [...d.querySelectorAll('input[name=enemy]')].slice(0, 4).forEach((i) => i.checked = true);
+  d.querySelector('input[name=enemy]').dispatchEvent(new Event("change", { bubbles: true }));
+  check("enemy verdict", d.getElementById("verdict").textContent.includes("enemy"));
+  d.getElementById("reason").value = "He mocked me"; d.querySelector("#reason-form button").click(); await wait(50);
+  check("reason added", d.querySelectorAll("#reasons p").length === 1);
+  d.getElementById("clear-data").click(); await wait(50);
+  check("clear data", Object.keys(localStorage).filter((k) => k.startsWith("lh.")).length === 0, Object.keys(localStorage).join(","));
+  check("no horizontal scroll", d.documentElement.scrollWidth <= 360, d.documentElement.scrollWidth);
+
+  ({ d } = await open("/index.html"));
+  check("home map", !!d.querySelector("#hero-map svg"));
+  check("no horizontal scroll", d.documentElement.scrollWidth <= 360, d.documentElement.scrollWidth);
+} catch (e) { out.push("ERROR " + e.message); }
+document.getElementById("out").textContent = "DONE\n" + out.join("\n");
+</script>

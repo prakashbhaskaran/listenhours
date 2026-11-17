@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Say it well · ListenHours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="wrap">
+    <h1>Say it well</h1>
+    <p class="lede">When something hurts, it's tempting to hint, go silent, or pick a fight. Saying what you need, plainly and kindly, works better. And how they respond tells you a lot about them.</p>
+
+    <h2>Five things that make it work</h2>
+    <ol class="steps" id="principles"></ol>
+
+    <div class="panel">
+      <h2>Write your words</h2>
+      <p class="muted small">Do this when you're calm, not in the middle of a fight. If you're anxious, that can take a day or two, and that's fine.</p>
+      <form id="builder">
+        <label class="field" for="when">What happens?<span class="hint">For example: you don't call for days</span></label>
+        <input type="text" id="when" name="when" autocomplete="off">
+        <label class="field" for="feel">How do you feel?<span class="hint">For example: unsure where I stand</span></label>
+        <input type="text" id="feel" name="feel" autocomplete="off">
+        <label class="field" for="need">What do you need?<span class="hint">For example: to hear from you every day</span></label>
+        <input type="text" id="need" name="need" autocomplete="off">
+        <label class="field" for="ask">What could they do?<span class="hint">For example: send me a quick message when you can</span></label>
+        <input type="text" id="ask" name="ask" autocomplete="off">
+      </form>
+      <h3>Your words</h3>
+      <p class="script-preview" id="preview" aria-live="polite"></p>
+      <ul class="warnings" id="warnings" aria-live="polite"></ul>
+      <div class="actions">
+        <button class="btn" type="button" id="copy">Copy my words</button>
+        <span class="muted small" id="copy-status" role="status"></span>
+      </div>
+    </div>
+
+    <h2>Then watch how they respond</h2>
+    <ul id="judge"></ul>
+    <p>If they listen and care, that's a very good sign. If they brush it off or make you feel needy, take that seriously.</p>
+
+    <h2>Protest or say it?</h2>
+    <div class="compare" id="examples"></div>
+    <div id="pay"></div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script type="module" src="js/pages/say-it.js"></script>
+</body>
+</html>

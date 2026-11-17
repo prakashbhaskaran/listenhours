@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ListenHours</title>
+  <meta name="description" content="Free tools to understand yourself in love, dating, marriage and breakups. Based on attachment science. For Chennai.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>When love hurts, you are not too much.</h1>
+        <p class="lede">Needing someone isn't a weakness. It's how people are made. These free tools help you understand how you love, why it hurts, and what to do next.</p>
+        <div class="actions">
+          <a class="btn" href="my-style.html">Find my style</a>
+          <a class="btn quiet" href="breakup.html">I'm going through a breakup</a>
+        </div>
+      </div>
+      <div id="hero-map"></div>
+    </section>
+
+    <h2>Three ways people love</h2>
+    <p>Most people fall into one of three patterns. None of them is wrong. Knowing yours explains a lot.</p>
+    <div class="styles">
+      <div>
+        <h3>Secure</h3>
+        <p>Comfortable being close. Says what they need, doesn't play games, and doesn't panic over small things.</p>
+      </div>
+      <div>
+        <h3>Anxious</h3>
+        <p>Loves deeply and notices every small change. Worries the other person will pull away, and can't settle until reassured.</p>
+      </div>
+      <div>
+        <h3>Avoidant</h3>
+        <p>Values independence. Wants love, but feels crowded when things get close, and pulls back.</p>
+      </div>
+    </div>
+
+    <h2>Start anywhere</h2>
+    <ul class="tools">
+      <li><a href="my-style.html"><strong>Find my style</strong><span>A short quiz about how you feel in relationships. About five minutes.</span></a></li>
+      <li><a href="partner-style.html"><strong>Understand my partner</strong><span>Rate how your partner or date behaves, and see what it tells you.</span></a></li>
+      <li><a href="inventory.html"><strong>Look back at past relationships</strong><span>See the patterns that keep repeating, and what a secure person would do instead.</span></a></li>
+      <li><a href="say-it.html"><strong>Say it well</strong><span>Write the words for a hard conversation, without blaming and without apologising for your needs.</span></a></li>
+      <li><a href="breakup.html"><strong>Breakup kit</strong><span>Decide whether to stay, and get through the pain if you leave.</span></a></li>
+    </ul>
+
+    <div class="note">
+      <strong>Coming soon: talk to a person.</strong>
+      Someone who listens, someone who listens and responds, or a therapist. For Chennai, by appointment, 9 AM to 6 PM.
+    </div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script type="module">
+    import { renderShell } from "./js/lib/layout.js";
+    import { attachmentMap } from "./js/lib/map.js";
+    renderShell({ active: "index.html" });
+    document.getElementById("hero-map").innerHTML = attachmentMap(null);
+  </script>
+</body>
+</html>

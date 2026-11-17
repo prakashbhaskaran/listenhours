@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Find my style · ListenHours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="wrap">
+    <h1>Find my style</h1>
+    <p class="lede">Tick every statement that's true for you in relationships, past or present. Leave the rest blank. There are no right answers.</p>
+    <form id="quiz">
+      <fieldset>
+        <legend class="sr-only">Statements</legend>
+        <ul class="checks" id="items"></ul>
+      </fieldset>
+      <div class="actions">
+        <button class="btn" type="submit">See my result</button>
+        <span class="muted small" id="count" aria-live="polite"></span>
+      </div>
+    </form>
+    <section id="result" class="result" tabindex="-1" hidden></section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script type="module" src="js/pages/my-style.js"></script>
+</body>
+</html>
