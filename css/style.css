@@ -117,17 +117,6 @@ strong { font-weight: 600; }
   text-decoration: none;
   margin-right: auto;
 }
-.help-link {
-  order: 3;
-  font-size: 0.88rem;
-  color: var(--ink-soft);
-  text-decoration: none;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  padding: 0.3rem 0.85rem;
-  white-space: nowrap;
-}
-.help-link:hover, .help-link[aria-current="page"] { color: var(--ink); border-color: var(--gold); }
 .site-nav { order: 2; display: flex; flex-wrap: wrap; gap: var(--s1) var(--s5); }
 .site-nav a {
   color: var(--ink-soft);
@@ -146,7 +135,6 @@ strong { font-weight: 600; }
   background: var(--gold);
 }
 @media (max-width: 879px) {
-  .help-link { order: 2; }
   .site-nav {
     order: 3;
     width: 100%;
@@ -455,13 +443,6 @@ ol.steps li::marker { font-family: var(--display); font-size: 1.2rem; color: var
 .pay .btn { background: var(--rose); color: #2a1121; margin-top: var(--s2); }
 .pay .btn:hover { background: #f3bccb; }
 .result .pay { margin-top: var(--s6); }
-
-/* Help page */
-.helplines { list-style: none; padding: 0; margin: var(--s4) 0 0; display: grid; gap: var(--s3); }
-.helplines li { margin: 0; display: grid; gap: 2px; padding: var(--s4) var(--s5); border: 1px solid var(--line); border-radius: var(--radius-s); background: var(--bg-2); }
-.helplines a { font-family: var(--display); font-size: 1.8rem; font-weight: 600; text-decoration: none; line-height: 1.1; }
-.helplines span { color: var(--ink-soft); }
-@media (min-width: 720px) { .helplines { grid-template-columns: repeat(3, 1fr); } }
 
 /* Footer */
 .site-footer { border-top: 1px solid var(--line-soft); padding: var(--s6) 0; color: var(--ink-faint); font-size: 0.9rem; }

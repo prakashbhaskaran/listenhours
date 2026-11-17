@@ -26,7 +26,7 @@ It's a plain static site. Upload the folder to Netlify, Cloudflare Pages, or Git
 
 ## What's where
 
-- Pages: `index.html` (home), `my-style.html`, `partner-style.html`, `inventory.html`, `practice.html`, `role-model.html`, `say-it.html`, `conflict.html`, `dating.html`, `breakup.html`, `help.html` (crisis numbers, privacy, clear data)
+- Pages: `index.html` (home), `my-style.html`, `partner-style.html`, `inventory.html`, `practice.html`, `role-model.html`, `say-it.html`, `conflict.html`, `dating.html`, `breakup.html`, `privacy.html` (privacy, clear data, about)
 - `js/lib/`: quiz content, scoring, and shared layout (tested)
 - `js/pages/`: the code behind each page
 - `css/style.css`: the look (premium night theme)

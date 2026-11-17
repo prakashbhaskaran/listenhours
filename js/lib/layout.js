@@ -21,14 +21,13 @@ export function renderShell({ active } = {}) {
         ${NAV.map(([href, label]) =>
           `<a href="${href}"${href === active ? ' aria-current="page"' : ""}>${label}</a>`).join("")}
       </nav>
-      <a class="help-link" href="help.html"${active === "help.html" ? ' aria-current="page"' : ""}>Need help?</a>
     </div>`;
   }
   if (footer) {
     footer.className = "site-footer";
     footer.innerHTML = `<div class="wrap">
       <a class="brand" href="index.html">ListenHours</a>
-      <span>Made for Chennai. <a href="help.html">Help and privacy</a></span>
+      <span>Made for Chennai. <a href="privacy.html">Privacy</a></span>
     </div>`;
   }
 }
