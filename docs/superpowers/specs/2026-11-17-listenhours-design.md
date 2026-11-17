@@ -97,3 +97,31 @@ harming yourself, call Tele-MANAS 14416 (free, 24/7) or SNEHA Chennai
 
 Exact quiz wording and scoring thresholds (balanced so each style is
 reachable), page copy, and visual details.
+
+## v1.1 — Helping people become more secure (approved 2026-11-17)
+
+Why: v1 helps people understand their pattern; the book's routes to security
+(secure role models, practising secure habits, choosing secure partners,
+handling conflict securely) were missing or thin.
+
+Four additions, all in our own words with original scenarios:
+
+1. **When we fight** (`conflict.html`): the five secure principles for
+   conflict, the insecure tactics to avoid, truths to hold during a fight, and
+   a workshop of original scenarios where the visitor judges each reaction
+   secure or insecure and sees why and what would be better.
+2. **My secure person** (`role-model.html`): guided prompts to choose a calm,
+   steady person and write how they act; pick secure traits to adopt. Saved
+   locally and surfaced in "Look back" and "Say it well".
+3. **Dating when you're anxious** (`dating.html`): accept your needs, rule out
+   avoidant partners early, be yourself and say what you need, date more than
+   one person for a while, give calm people a chance; plus "alarm or love?"
+   check.
+4. **Daily practice** (`practice.html`): a short check-in tailored to style
+   (anxious: urge to protest and what I did instead; avoidant: one thing my
+   partner did that helped, urge to pull away). One entry per day, streak and
+   last-28-days view, all on-device.
+
+Navigation: header keeps 6 links (Home, My style, Daily practice, Say it well,
+When we fight, Breakup kit); home lists every tool grouped as Understand /
+Grow more secure / Breakup.
