@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily practice · ListenHours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="wrap">
+    <h1>Daily practice</h1>
+    <p class="lede">Security grows through small moments, repeated. Two minutes a day: notice what happened, and what you did with it. Over weeks, you'll see the change.</p>
+
+    <p class="small muted" id="style-label">Practising for:</p>
+    <div class="style-pick" id="style-pick" role="group" aria-labelledby="style-label"></div>
+
+    <form id="checkin" class="panel">
+      <h2 id="form-title"></h2>
+      <p class="muted" id="form-intro"></p>
+      <div id="fields"></div>
+      <div class="actions">
+        <button class="btn" type="submit">Save today</button>
+        <span class="small muted" id="status" role="status"></span>
+      </div>
+    </form>
+
+    <h2>Your last four weeks</h2>
+    <div class="stats">
+      <div class="stat"><b id="streak">0</b><span>days in a row</span></div>
+      <div class="stat"><b id="wins">0</b><span>secure choices in 4 weeks</span></div>
+    </div>
+    <ul class="days" id="days" aria-label="Check-ins over the last 28 days"></ul>
+    <p class="legend"><span><i class="k-win"></i>Secure choice</span><span><i class="k-done"></i>Checked in</span><span><i class="k-none"></i>No check-in</span></p>
+
+    <h2>Recent entries</h2>
+    <ul class="entries" id="recent"></ul>
+    <div id="pay"></div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script type="module" src="js/pages/practice.js"></script>
+</body>
+</html>

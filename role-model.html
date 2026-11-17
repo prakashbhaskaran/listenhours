@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My secure person · ListenHours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="wrap">
+    <h1>My secure person</h1>
+    <p class="lede">Think of someone calm and steady you've known: a parent, grandparent, friend, teacher, a colleague, even a past partner. Picturing how they would handle a hard moment really does help you act a little more like them.</p>
+
+    <form id="rm" class="panel">
+      <h2>Who comes to mind?</h2>
+      <label class="field" for="name">Their name<span class="hint">Or how you think of them, like "Paati" or "my old manager"</span></label>
+      <input type="text" id="name" name="name" autocomplete="off">
+      <div id="prompts"></div>
+      <fieldset class="mt">
+        <legend>What would you like to borrow from them?</legend>
+        <ul class="checks" id="traits"></ul>
+      </fieldset>
+      <div class="actions">
+        <button class="btn" type="submit">Save my secure person</button>
+        <span class="small muted" id="status" role="status"></span>
+      </div>
+    </form>
+
+    <section id="summary" hidden></section>
+    <div id="pay"></div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script type="module" src="js/pages/role-model.js"></script>
+</body>
+</html>

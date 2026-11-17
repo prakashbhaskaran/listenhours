@@ -13,7 +13,7 @@ const check = (name, ok, extra = "") => out.push(`${ok ? "PASS" : "FAIL"} ${name
 try {
   localStorage.clear();
   let { d, w } = await open("/my-style.html");
-  check("shell rendered", !!d.querySelector(".site-nav a[aria-current]") && !!d.querySelector(".helplines"));
+  check("shell rendered", !!d.querySelector(".site-nav a[aria-current]") && !!d.querySelector(".help-link") && !d.querySelector(".helplines"));
   check("36 statements", d.querySelectorAll('input[name="item"]').length === 36);
   d.querySelector("#quiz button[type=submit]").click(); await wait(100);
   check("empty → unclear", d.querySelector("#result h2").textContent.includes("Tick"));
@@ -57,9 +57,51 @@ try {
   check("enemy verdict", d.getElementById("verdict").textContent.includes("enemy"));
   d.getElementById("reason").value = "He mocked me"; d.querySelector("#reason-form button").click(); await wait(50);
   check("reason added", d.querySelectorAll("#reasons p").length === 1);
+  check("no horizontal scroll", d.documentElement.scrollWidth <= 360, d.documentElement.scrollWidth);
+
+
+  ({ d } = await open("/conflict.html"));
+  const first = d.querySelector(".scenario");
+  first.querySelector('[data-choice="insecure"]').click(); await wait(50);
+  check("workshop verdict", !!d.querySelector('.scenario .verdict.right'), d.querySelector(".scenario .verdict")?.textContent.trim().slice(0, 40));
+  for (let i = 0; i < 7; i++) { d.querySelectorAll(".scenario")[i].querySelector("[data-choice=secure]").click(); await wait(20); }
+  check("workshop score", /of 7/.test(d.getElementById("score").textContent), d.getElementById("score").textContent);
+  check("no horizontal scroll conflict", d.documentElement.scrollWidth <= 360, d.documentElement.scrollWidth);
+
+  ({ d } = await open("/role-model.html"));
+  d.querySelector("#rm button[type=submit]").click(); await wait(50);
+  check("role model needs name", d.getElementById("status").textContent.includes("name"));
+  d.getElementById("name").value = "Paati"; d.querySelector('input[name="trait"]').checked = true;
+  d.querySelector("#rm button[type=submit]").click(); await wait(50);
+  check("role model summary", d.querySelector("#summary h2")?.textContent.includes("Paati"));
+  ({ d } = await open("/say-it.html")); await wait(200);
+  check("role model in say-it", d.getElementById("rm-note").textContent.includes("Paati") && !d.getElementById("rm-note").hidden);
+  ({ d } = await open("/inventory.html")); await wait(200);
+  check("role model in look back", d.querySelector('label[for="f-secure"] .hint').textContent.includes("Paati"));
+
+  ({ d } = await open("/dating.html"));
+  [...d.querySelectorAll('input[name=alarm]')].slice(0, 4).forEach((i) => i.checked = true);
+  d.querySelector('input[name=alarm]').dispatchEvent(new Event("change", { bubbles: true }));
+  check("dating verdict", d.getElementById("verdict").textContent.includes("alarm"));
+  check("no horizontal scroll dating", d.documentElement.scrollWidth <= 360, d.documentElement.scrollWidth);
+
+  ({ d } = await open("/practice.html"));
+  d.querySelector('#checkin button[type=submit]').click(); await wait(50);
+  check("practice needs input", d.getElementById("status").textContent.includes("first"));
+  d.querySelector('input[name="did"][value="said"]').checked = true;
+  d.querySelector('#checkin button[type=submit]').click(); await wait(50);
+  check("practice streak 1", d.getElementById("streak").textContent === "1" && d.getElementById("wins").textContent === "1");
+  d.querySelector('input[name="did"][value="protested"]').checked = true;
+  d.querySelector('#checkin button[type=submit]').click(); await wait(50);
+  check("practice same-day replace", JSON.parse(localStorage.getItem("lh.practice")).length === 1 && d.getElementById("wins").textContent === "0");
+  check("practice 28 days", d.querySelectorAll("#days li").length === 28);
+  check("no horizontal scroll practice", d.documentElement.scrollWidth <= 360, d.documentElement.scrollWidth);
+
+  ({ d } = await open("/help.html"));
+  check("help has helplines", d.querySelectorAll(".helplines li").length === 3);
   d.getElementById("clear-data").click(); await wait(50);
   check("clear data", Object.keys(localStorage).filter((k) => k.startsWith("lh.")).length === 0, Object.keys(localStorage).join(","));
-  check("no horizontal scroll", d.documentElement.scrollWidth <= 360, d.documentElement.scrollWidth);
+  check("no horizontal scroll help", d.documentElement.scrollWidth <= 360, d.documentElement.scrollWidth);
 
   ({ d } = await open("/index.html"));
   check("home map", !!d.querySelector("#hero-map svg"));

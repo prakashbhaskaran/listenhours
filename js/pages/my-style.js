@@ -32,7 +32,7 @@ form.addEventListener("submit", (e) => {
     <p>${escapeHtml(info.summary)}</p>
     ${info.doNext.length ? `<h3>What helps</h3><ul>${info.doNext.map((d) => `<li>${escapeHtml(d)}</li>`).join("")}</ul>` : ""}
     ${r.style === "unclear" ? "" : `<p class="small muted">Styles can change. About one in four people shift over a few years, often through a relationship with someone secure. This is a guide, not a diagnosis.</p>
-    <div class="actions"><a class="btn" href="partner-style.html">Now look at my partner</a><a class="btn quiet" href="say-it.html">Say it well</a></div>`}
+    <div class="actions"><a class="btn" href="practice.html">Start my daily practice</a><a class="btn quiet" href="partner-style.html">Now look at my partner</a></div>`}
   </div>`;
   if (r.style !== "unclear") result.appendChild(payBox());
   result.focus();

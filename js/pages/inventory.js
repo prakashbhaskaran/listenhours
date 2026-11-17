@@ -56,3 +56,10 @@ list.addEventListener("click", (ev) => {
 
 render();
 document.getElementById("pay").appendChild(payBox());
+
+// Point the "secure person" step at their saved role model, if any.
+import("../lib/roleModel.js").then(({ roleModelLine }) => {
+  const line = roleModelLine(load("lh.roleModel", null), "in this situation");
+  const hint = document.querySelector('label[for="f-secure"] .hint');
+  if (line && hint) hint.textContent = line;
+});

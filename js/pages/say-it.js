@@ -40,3 +40,10 @@ document.getElementById("copy").addEventListener("click", async () => {
   try { await navigator.clipboard.writeText(text); status.textContent = "Copied."; }
   catch { status.textContent = "Couldn't copy. Select the text and copy it yourself."; }
 });
+
+// Remind them of their secure person, if they've set one.
+import("../lib/roleModel.js").then(({ roleModelLine }) => {
+  const line = roleModelLine(load("lh.roleModel", null), "if they were in your place");
+  const el = document.getElementById("rm-note");
+  if (line && el) { el.textContent = line; el.hidden = false; }
+});

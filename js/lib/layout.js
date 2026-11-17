@@ -1,13 +1,12 @@
 import { PAYMENT } from "../config.js";
 import { paymentHref } from "./payment.js";
-import { clearAll } from "./store.js";
 
 const NAV = [
   ["index.html", "Home"],
   ["my-style.html", "My style"],
-  ["partner-style.html", "My partner"],
-  ["inventory.html", "Look back"],
+  ["practice.html", "Daily practice"],
   ["say-it.html", "Say it well"],
+  ["conflict.html", "When we fight"],
   ["breakup.html", "Breakup kit"],
 ];
 
@@ -21,29 +20,16 @@ export function renderShell({ active } = {}) {
       <nav class="site-nav" aria-label="Main">
         ${NAV.map(([href, label]) =>
           `<a href="${href}"${href === active ? ' aria-current="page"' : ""}>${label}</a>`).join("")}
-      </nav></div>`;
+      </nav>
+      <a class="help-link" href="help.html"${active === "help.html" ? ' aria-current="page"' : ""}>Need help?</a>
+    </div>`;
   }
   if (footer) {
     footer.className = "site-footer";
     footer.innerHTML = `<div class="wrap">
-      <h2>If you need help right now</h2>
-      <p>ListenHours is not therapy and can't respond in an emergency. If you're in crisis or thinking of hurting yourself, please call:</p>
-      <ul class="helplines">
-        <li><a href="tel:14416">14416</a> Tele-MANAS (free, 24 hours)</li>
-        <li><a href="tel:04424640050">044-2464 0050</a> SNEHA, Chennai</li>
-        <li><a href="tel:181">181</a> Women's helpline, if a partner is hurting you</li>
-      </ul>
-      <div class="footer-row">
-        <span>Your answers stay on this device. Nothing is sent anywhere.</span>
-        <button type="button" class="linklike" id="clear-data">Clear my data</button>
-        <span id="clear-status" role="status"></span>
-      </div>
-      <p class="credit">Ideas based on <cite>Attached</cite> by Amir Levine and Rachel Heller.</p>
+      <a class="brand" href="index.html">ListenHours</a>
+      <span>Made for Chennai. <a href="help.html">Help and privacy</a></span>
     </div>`;
-    footer.querySelector("#clear-data").addEventListener("click", () => {
-      clearAll();
-      footer.querySelector("#clear-status").textContent = "Cleared. Reload the page to start fresh.";
-    });
   }
 }
 
@@ -56,7 +42,7 @@ export function payBox() {
     <p>Everything here is free. If this helped you, pay whatever you can. It keeps ListenHours going for the next person.</p>
     ${href
       ? `<a class="btn" href="${href}" target="_blank" rel="noopener">Pay what you can</a>`
-      : `<p class="small muted">Payments are being set up. Please come back soon.</p>`}`;
+      : `<p class="small">Payments are being set up. Please come back soon.</p>`}`;
   return box;
 }
 
