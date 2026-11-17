@@ -25,7 +25,7 @@ const rList = document.getElementById("reasons");
 let reasons = load("lh.reasons", []);
 function renderReasons() {
   rList.innerHTML = reasons.length
-    ? reasons.map((r, i) => `<li><p style="white-space:pre-wrap;margin:0">${escapeHtml(r)}</p><button type="button" class="linklike small" data-i="${i}">Remove</button></li>`).join("")
+    ? reasons.map((r, i) => `<li><p class="reason">${escapeHtml(r)}</p><button type="button" class="linklike small" data-i="${i}">Remove</button></li>`).join("")
     : `<li class="muted">Your list is empty.</li>`;
 }
 rForm.addEventListener("submit", (e) => {

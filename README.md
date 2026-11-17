@@ -29,7 +29,7 @@ It's a plain static site. Upload the folder to Netlify, Cloudflare Pages, or Git
 - `index.html`, `my-style.html`, `partner-style.html`, `inventory.html`, `say-it.html`, `breakup.html`: the pages
 - `js/lib/`: quiz content, scoring, and shared layout (tested)
 - `js/pages/`: the code behind each page
-- `css/style.css`: the look (light and dark mode)
+- `css/style.css`: the look (always dark)
 - `.preview/`: local test pages only (phone-width preview, click-through smoke test)
 
 Private answers are kept only in the visitor's browser (`localStorage`). Nothing is sent anywhere.

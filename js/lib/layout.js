@@ -38,7 +38,7 @@ export function renderShell({ active } = {}) {
         <button type="button" class="linklike" id="clear-data">Clear my data</button>
         <span id="clear-status" role="status"></span>
       </div>
-      <p class="small" style="margin-top:1rem">Ideas based on <cite>Attached</cite> by Amir Levine and Rachel Heller.</p>
+      <p class="credit">Ideas based on <cite>Attached</cite> by Amir Levine and Rachel Heller.</p>
     </div>`;
     footer.querySelector("#clear-data").addEventListener("click", () => {
       clearAll();
